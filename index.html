@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
@@ -10,8 +11,8 @@
             height: 100vh;
         }
         button {
-            font-size: 24px;
-            padding: 15px 30px;
+            font-size: 5vw; /* адаптивный размер для телефонов */
+            padding: 3vw 6vw;
         }
         #test {
             display: none;
@@ -54,7 +55,7 @@
     </script>
 </head>
 <body>
-    <button onclick="startTest()">Start pixel test</button>
+    <button onclick="startTest()">Начать тест</button>
     <div id="test"></div>
 </body>
 </html>
