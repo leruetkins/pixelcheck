@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button {
+            font-size: 24px;
+            padding: 15px 30px;
+        }
+        #test {
+            display: none;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        const colors = ["#000", "#f00", "#0f0", "#00f", "#fff"];
+        let state = 0;
+
+        function startTest() {
+            const test = document.getElementById("test");
+            test.style.display = "block";
+            test.style.background = colors[0];
+            test.requestFullscreen();
+            document.querySelector("button").style.display = "none";
+        }
+
+        function handleClick() {
+            const test = document.getElementById("test");
+            state = (state + 1) % colors.length;
+            test.style.background = colors[state];
+        }
+
+        function exitTest() {
+            if (!document.fullscreenElement) {
+                document.getElementById("test").style.display = "none";
+                document.querySelector("button").style.display = "block";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("test").addEventListener("click", handleClick);
+            document.addEventListener("fullscreenchange", exitTest);
+        });
+    </script>
+</head>
+<body>
+    <button onclick="startTest()">Start pixel test</button>
+    <div id="test"></div>
+</body>
+</html>
