@@ -11,8 +11,8 @@
             height: 100vh;
         }
         button {
-            font-size: 5vw; /* адаптивный размер для телефонов */
-            padding: 3vw 6vw;
+            font-size: 20px;
+            padding: 10px 20px;
         }
         #test {
             display: none;
@@ -21,6 +21,13 @@
             height: 100vh;
             top: 0;
             left: 0;
+        }
+        /* Адаптивные размеры для телефонов */
+        @media (max-width: 600px) {
+            button {
+                font-size: 5vw; /* Увеличиваем шрифт для маленьких экранов */
+                padding: 3vw 6vw;
+            }
         }
     </style>
     <script>
@@ -55,7 +62,7 @@
     </script>
 </head>
 <body>
-    <button onclick="startTest()">Strat pixels check</button>
+    <button onclick="startTest()">Start pixels check</button>
     <div id="test"></div>
 </body>
 </html>
